@@ -65,21 +65,14 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Tech Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+I chose to broadly interpret "non-proprietary tech stack" as being allowed to use any well vetted OSS software. As a result, I chose Next.js for it's fast set-up and for the features that it provides for "free", such as routing, API routes, and performance optimisations. That said, I can anticipate that within the context of projects that DigitalService Bund undertakes, such freedoms may be limited. The major libraries I've chosen are listed below with a short note describing why and potential alternate approaches.
 
-## Learn More
+### NextJS (Vercel)
 
-To learn more about Next.js, take a look at the following resources:
+Popular React meta-framework that offers a lot of functionality out of the box. Alternatives would include create-react-app or manually configuring webpack to get started, but these are time consuming and error prone while offering very little benefit over Next or similar meta-frameworks such as Remix.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### useSWR (Vercel)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+SWR = Stale While Revalidate. An data fetching hook that intelligently refetches and revalidates data while enabling optimistic display of data to the user in cases of limited internet connectivity or refocussing a stale browser tab.
