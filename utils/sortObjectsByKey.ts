@@ -1,8 +1,13 @@
+export enum Direction {
+  Ascending = "ASC",
+  Descending = "DESC"
+}
+
 export const sortObjectsByKey = (
   data: Record<string, string | number>[],
   attribute: string,
-  direction: "ASC" | "DESC" = "ASC"
-) => {
+  direction: Direction = Direction.Ascending
+):  Record<string, string | number>[] => {
   if (data.find((element) => element[attribute] !== undefined) === undefined) {
     throw new Error(
       "Attribute is not present in any of the objects inside the array."
@@ -34,7 +39,7 @@ export const sortObjectsByKey = (
       }
     }
 
-    if (direction === "DESC") {
+    if (direction === Direction.Descending) {
       compare *= -1;
     }
 

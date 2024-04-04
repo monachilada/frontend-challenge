@@ -1,4 +1,4 @@
-import { describe, expect, test } from "@jest/globals";
+import {  expect, test } from "@jest/globals";
 import sortObjectsByKey from "./sortObjectsByKey";
 
 const testData = [
@@ -42,6 +42,7 @@ test("Sorts array ascendingly by string key", () => {
 });
 
 test("Sorts array descendingly by string key", () => {
+  // @ts-ignore
   expect(sortObjectsByKey(testData, "stringKey", "DESC")).toStrictEqual([
     {
       stringKey: "jkl",
@@ -84,6 +85,7 @@ test("Sorts array ascendingly by number key", () => {
 });
 
 test("Sorts array descendingly by number key", () => {
+  // @ts-ignore
   expect(sortObjectsByKey(testData, "numberKey", "DESC")).toStrictEqual([
     {
       stringKey: "abc",
