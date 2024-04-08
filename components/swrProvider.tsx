@@ -17,3 +17,5 @@ export const SWRProvider = ({
     </SWRConfig>
   );
 };
+
+export default SWRProvider;
