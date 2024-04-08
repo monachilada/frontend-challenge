@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import SWRProvider from "@/components/swrProvider";
+import SortingProvider from "@/components/sortingProvider";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
@@ -17,13 +18,15 @@ export default function RootLayout({
 }>) {
   return (
     <SWRProvider>
-      <html lang="en">
-        <body className={inter.className}>
-          <main className="flex min-h-screen flex-col items-center justify-between p-24">
-            {children}
-          </main>
-        </body>
-      </html>
+      <SortingProvider>
+        <html lang="en">
+          <body className={inter.className}>
+            <main className="flex min-h-screen flex-col items-start justify-between p-24">
+              {children}
+            </main>
+          </body>
+        </html>
+      </SortingProvider>
     </SWRProvider>
   );
 }
