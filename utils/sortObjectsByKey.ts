@@ -1,20 +1,20 @@
-export enum Direction {
-  Ascending = "ASC",
-  Descending = "DESC"
-}
+import { Direction } from "@/types/sort";
 
 export const sortObjectsByKey = (
   data: Record<string, string | number>[],
   attribute: string,
   direction: Direction = Direction.Ascending
-):  Record<string, string | number>[] => {
+): Record<string, string | number>[] => {
   if (data.find((element) => element[attribute] !== undefined) === undefined) {
     throw new Error(
       "Attribute is not present in any of the objects inside the array."
     );
   }
 
-  return data.sort((a, b) => {
+  // Ensure we are not modifying the original reference
+  let sortedData = [...data];
+
+  return sortedData.sort((a, b) => {
     const itemA = a[attribute];
     const itemB = b[attribute];
     let compare = 0;

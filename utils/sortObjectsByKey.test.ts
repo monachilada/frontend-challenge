@@ -1,4 +1,4 @@
-import {  expect, test } from "@jest/globals";
+import { expect, test } from "@jest/globals";
 import sortObjectsByKey from "./sortObjectsByKey";
 
 const testData = [
@@ -39,6 +39,26 @@ test("Sorts array ascendingly by string key", () => {
       numberKey: 1,
     },
   ]);
+
+  // Leaves initial data intact
+  expect(testData).toStrictEqual([
+    {
+      stringKey: "ghi",
+      numberKey: 3,
+    },
+    {
+      stringKey: "abc",
+      numberKey: 4,
+    },
+    {
+      stringKey: "def",
+      numberKey: 2,
+    },
+    {
+      stringKey: "jkl",
+      numberKey: 1,
+    },
+  ]);
 });
 
 test("Sorts array descendingly by string key", () => {
@@ -61,6 +81,26 @@ test("Sorts array descendingly by string key", () => {
       numberKey: 4,
     },
   ]);
+
+  // Leaves initial data intact
+  expect(testData).toStrictEqual([
+    {
+      stringKey: "ghi",
+      numberKey: 3,
+    },
+    {
+      stringKey: "abc",
+      numberKey: 4,
+    },
+    {
+      stringKey: "def",
+      numberKey: 2,
+    },
+    {
+      stringKey: "jkl",
+      numberKey: 1,
+    },
+  ]);
 });
 
 test("Sorts array ascendingly by number key", () => {
@@ -80,6 +120,26 @@ test("Sorts array ascendingly by number key", () => {
     {
       stringKey: "abc",
       numberKey: 4,
+    },
+  ]);
+
+  // Leaves initial data intact
+  expect(testData).toStrictEqual([
+    {
+      stringKey: "ghi",
+      numberKey: 3,
+    },
+    {
+      stringKey: "abc",
+      numberKey: 4,
+    },
+    {
+      stringKey: "def",
+      numberKey: 2,
+    },
+    {
+      stringKey: "jkl",
+      numberKey: 1,
     },
   ]);
 });
@@ -104,9 +164,29 @@ test("Sorts array descendingly by number key", () => {
       numberKey: 1,
     },
   ]);
+
+  // Leaves initial data intact
+  expect(testData).toStrictEqual([
+    {
+      stringKey: "ghi",
+      numberKey: 3,
+    },
+    {
+      stringKey: "abc",
+      numberKey: 4,
+    },
+    {
+      stringKey: "def",
+      numberKey: 2,
+    },
+    {
+      stringKey: "jkl",
+      numberKey: 1,
+    },
+  ]);
 });
 
-test("Throws an error if the attribute is not present at least once", () => {
+test("Throws an error if the attribute is not present", () => {
   // @ts-ignore
   expect(() => sortObjectsByKey(testData, "missingKey")).toThrowError(
     "Attribute is not present in any of the objects inside the array."
